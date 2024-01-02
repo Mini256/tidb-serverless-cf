@@ -19,7 +19,7 @@ export const router = OpenAPIRouter({
 	}
 });
 
-router.post("/api/query/", ExecuteQuery);
+router.post("/api/query", ExecuteQuery);
 
 // 404 for everything else
 router.all("*", () =>
