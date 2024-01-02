@@ -46,8 +46,14 @@ export class ExecuteQuery extends OpenAPIRoute {
 	) {
 		const url = new URL(req.url);
 		const sessionId = url.searchParams.get(CONVERSATION_ID_HEADER) || DEFAULT_CONVERSATION_ID;
-		const conn = await getSessionConn(env, sessionId);
+		console.log(`Session ID: ${sessionId}`);
+		
+		// Get the SQL query from the request body.
 		const { sql } = data.body;
+		console.log(`SQL: ${sql}`);
+
+		// Connect to the session database.
+		const conn = await getSessionConn(env, sessionId);
 
 		// Execute the query.
 		return await conn.execute(sql, null, {
