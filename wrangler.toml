@@ -1,3 +1,7 @@
 name = "tidb-serverless-cf"
 main = "src/index.ts"
 compatibility_date = "2023-12-18"
+
+kv_namespaces = [
+    { binding = "PLAYGROUND_SESSIONS", id = "beddfee88f544e929d78985addc11e38" }
+]
