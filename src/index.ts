@@ -12,14 +12,14 @@ export const router = OpenAPIRouter({
 		},
 		servers: [
 			{
-				url: "https://tidb-serverless-cf.minianter.workers.dev/",
+				url: "https://tidb-serverless-cf.minianter.workers.dev",
 				description: "Cloudflare Worker Access Endpoint",
 			},
 		],
 	}
 });
 
-router.post("/api/query", ExecuteQuery);
+router.post("/api/query/", ExecuteQuery);
 
 // 404 for everything else
 router.all("*", () =>
